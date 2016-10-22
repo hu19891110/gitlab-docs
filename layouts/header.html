@@ -5,11 +5,21 @@
   </a>
   <ul>
     <li><input type="text" class="st-default-search-input" placeholder="Search"></li>
+
     <% @config[:products].each do |name, product| %>
       <li>
-        <a href="<%= @items["/#{product[:slug]}/#{product[:index_file]}"].path %>">
+        <a href="<%= @items["/#{product[:slug]}/#{product[:stable]}/#{product[:index_file]}"].path %>">
           <%= product[:short_name] %>
         </a>
+        <ul>
+          <% @items.find_all("/#{product[:slug]}/*/#{product[:index_file]}").each do |item | %>
+            <li>
+              <a href="<%= @items[item.identifier.to_s].path %>">
+                <%= item.identifier.to_s.split("/")[2] %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
       </li>
     <% end %>
   </ul>

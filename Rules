@@ -30,7 +30,7 @@ end
 
 compile '/**/*.md' do
   if item[:redirect].nil?
-    include_toc = item.identifier.to_s.split("/")[2].end_with?("README.md", "index.md") ? false : true
+    include_toc = item.identifier.to_s.split("/")[3].end_with?("README.md", "index.md") ? false : true
     # Use Redcarpet with Rouge.
     filter :redcarpet,
       renderer: HTML,

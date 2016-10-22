@@ -27,8 +27,10 @@ module Nanoc::Helpers
       if @config[:debug]
         puts item_identifier
       end
-
-      if (item_identifier.nil? || (item_identifier.to_s.end_with?('README.md', 'index.md') && item_identifier.to_s.split('/').length == 3))
+      
+      # If the nearest parent is non-exist or is the README for the product,
+      # return and end the recursion.
+      if (item_identifier.nil? || (item_identifier.to_s.end_with?('README.md', 'index.md') && item_identifier.to_s.split('/').length == 4))
         return
       elsif item_identifier.to_s.end_with?('README.md', 'index.md')
         parent_dir = item_identifier.sub(/[^\/]+$/, '').chop

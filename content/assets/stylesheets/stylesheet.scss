@@ -185,7 +185,6 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  overflow: hidden;
 
   img {
     position: absolute;
@@ -213,6 +212,26 @@ h1, h2, h3, h4, h5, h6 {
     @media all and (max-width: $mobile-width) {
       display: none;
     }
+
+    ul {
+      position: absolute;
+      width: 100%;
+      min-width: 120px;
+      left: 0;
+      padding: 10px;
+      top: 15px;
+      text-align: left;
+      background-color: $white;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      z-index: 10;
+
+      li {
+        display: block;
+        margin: 0;
+        padding: 5px 0;
+      }
+    }
   }
 
   li {
@@ -220,6 +239,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     line-height: 20px;
     margin: 0 10px;
+    position: relative;
   }
 
   // Match the Swiftype styles as closely as possible

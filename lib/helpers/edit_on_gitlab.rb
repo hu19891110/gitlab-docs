@@ -7,6 +7,8 @@ module Nanoc::Helpers
       content_filename_array.shift
       # Get the product name.
       product = content_filename_array.shift
+      # Remove the version.
+      content_filename_array.shift
       # This should be the path from the doc/ directory for a given file.
       content_filename = content_filename_array.join("/")
 
